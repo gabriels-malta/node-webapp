@@ -1,2 +1,3 @@
 # node-webapp
- Building Web Applications with Node.js and Express
+
+All about the course 'Building Web Applications with Node.js and Express' by Jonathan Mills
