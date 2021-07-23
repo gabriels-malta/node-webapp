@@ -3,6 +3,7 @@ const express = require('express');
 const server = express();
 
 server.get('/', (req, res) => {
+    console.info(`Request received at ${new Date()}`)
     res.statusCode = 200;
     res.send('It works!')
 });
