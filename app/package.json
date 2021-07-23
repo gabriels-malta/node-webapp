@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "set DEBUG=server* & npx nodemon ./src/index.js",
+    "start": "set DEBUG=server* & npx nodemon ./src/index.js",
+    "debug": "set DEBUG=* & npx nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,5 +19,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2500
   }
 }
