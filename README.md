@@ -8,3 +8,11 @@
 - **morgan** is a middleware that intercepts HTTP requests for logging purposes
 - **debug** is a small debugging utility
 - **chalk** adds style for highlighting relevant log info
+
+## Simple Nodemon configuration
+```
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2500
+  }
+```
