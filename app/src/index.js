@@ -3,7 +3,7 @@ const express = require('express'),
     debug = require('debug')('server:index'),
     morgan = require('morgan'),
     path = require('path'),
-    SERVER_PORT = 4242;
+    SERVER_PORT = process.env.PORT || 8000;
 
 const server = express();
 
