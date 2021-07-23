@@ -1,11 +1,18 @@
-const express = require('express');
+const express = require('express'),
+    chalk = require('chalk'),
+    debug = require('debug')('server:index'),
+    morgan = require('morgan'),
+    SERVER_PORT = 4242;
 
 const server = express();
 
+server.use(morgan('tiny'));
+
 server.get('/', (req, res) => {
-    console.info(`Request received at ${new Date()}`)
     res.statusCode = 200;
-    res.send('It works!')
+    res.send('It works!');
 });
 
-server.listen(4242, () => console.log('Server listening on port 4242'));
+server.listen(SERVER_PORT, () => {
+    debug(`Server listening on port ${chalk.green(SERVER_PORT)}`)
+});
