@@ -5,11 +5,10 @@ const express = require('express'),
     debug = require('debug')('server:index'),
     morgan = require('morgan'),
     path = require('path'),
-    SERVER_PORT = process.env.PORT || 8000,
-    sessions = require('./data/sessions.json');
+    SERVER_PORT = (process.env.PORT || 8000),
+    sessionsRouter = require('./routers/sessionsRouter')
 
 const server = express();
-const sessionRouter = express.Router();
 
 server.use(morgan('tiny'));
 server.use(express.static(path.join(__dirname, '/public/')));
@@ -17,16 +16,7 @@ server.use(express.static(path.join(__dirname, '/public/')));
 server.set('views', './src/views');
 server.set('view engine', 'ejs');
 
-sessionRouter.route('/').get((req, res) => {
-    res.render('sessions', { sessions })
-});
-sessionRouter.route('/:id').get((req, res) => {
-    const id = parseInt(req.params.id);
-    const session = sessions.find(e => e.id === id);
-    
-    res.render('session', { session: session })
-});
-server.use('/sessions', sessionRouter);
+server.use('/sessions', sessionsRouter);
 
 server.get('/', (req, res) => {
     res.render('index', {
