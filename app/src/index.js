@@ -10,8 +10,13 @@ const server = express();
 server.use(morgan('tiny'));
 server.use(express.static(path.join(__dirname, '/public/')));
 
+server.set('views', './src/views');
+server.set('view engine', 'ejs');
+
 server.get('/', (req, res) => {
-    res.send('It works!');
+    res.render('index', {
+        title: 'Globomantics'
+    });
 });
 
 server.listen(SERVER_PORT, () => {

@@ -16,3 +16,7 @@
     "delay": 2500
   }
 ```
+
+## Template Engine
+
+This project use EJS as template engine
