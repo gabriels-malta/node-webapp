@@ -1,0 +1,22 @@
+<html>
+
+<body>
+    <section class="sec_include">
+        <div class="container">
+            <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
+                <h3>
+                    <%= session.title %>
+                </h3>
+                <p>
+                    <%= session.speakers[0].name%>
+                </p>
+                <p>
+                    <%= session.description %>
+                </p>
+            </div>
+        </div>
+        <a href="/sessions">go back</a>
+    </section>
+</body>
+
+</html>
