@@ -20,3 +20,7 @@
 ## Template Engine
 
 This project use EJS as template engine
+
+## Database
+
+We're using [MongoDb](https://www.mongodb.com/pt-br), a document-based data base.

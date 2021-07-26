@@ -1,22 +1,19 @@
-const express = require('express'),
-    debug = require('debug')('server:adminRouter'),
-    adminRouter = express.Router(),
-    sessions = require('../data/sessions.json');
-
-const { reset } = require('chalk');
+const express = require('express');
+const debug = require('debug')('server:adminRouter');
+const adminRouter = express.Router();
+const sessions = require('../data/sessions.json');
 const { MongoClient } = require('mongodb');
 const config = require('../config');
 
+const url = `mongodb+srv://${config.db.user}:${config.db.password}@globomantics.bwpoy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const dbName = 'globomantics';
+const mongoClient = new MongoClient(url);
+
 adminRouter.route('/').get((req, res) => {
-    const url = `mongodb+srv://${config.db.user}:${config.db.password}@globomantics.bwpoy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-    const dbName = 'globomantics';
-
     (async function () {
-        let client;
         try {
-            client = await MongoClient.connect(url);
+            client = await mongoClient.connect();
             debug('Connected to the MongoDB');
-
             const db = client.db(dbName);
             const response = await db.collection('sessions').insertMany(sessions);
             res.json(response);

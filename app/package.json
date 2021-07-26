@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set DEBUG=server* & npx nodemon ./src/index.js",
-    "debug": "set DEBUG=* & npx nodemon ./src/index.js",
+    "start": "set DEBUG=server,server:* & nodemon app.js",
+    "debug": "set DEBUG=* & npx nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,12 +19,7 @@
     "mongodb": "^4.0.1",
     "morgan": "^1.10.0"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
-  },
   "nodemonConfig": {
-    "restartable": "rs",
-    "delay": 2500,
     "env": {
       "DEBUG": true,
       "PORT": 4200
