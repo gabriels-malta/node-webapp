@@ -21,7 +21,7 @@
   },
   "nodemonConfig": {
     "env": {
-      "DEBUG": true,
+      "localsecrets": true,
       "PORT": 4200
     }
   }

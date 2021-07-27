@@ -7,7 +7,7 @@ let config = {
     }
 };
 
-if (process.env.DEBUG) {
+if (process.env.localsecrets) {
     config = require('./secrets.json');
     debug('Secret key retrivied from localhost');
 } else
