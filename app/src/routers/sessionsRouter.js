@@ -2,7 +2,7 @@ const express = require('express');
 const debug = require('debug')('server:sessionsRouter');
 const sessionsRouter = express.Router();
 const { MongoClient, ObjectId } = require('mongodb');
-const config = require('../config');
+const config = require('../config/config');
 
 const dbName = 'globomantics',
     url = `mongodb+srv://${config.db.user}:${config.db.password}@globomantics.bwpoy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,

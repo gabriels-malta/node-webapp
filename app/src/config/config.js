@@ -8,7 +8,7 @@ let config = {
 };
 
 if (process.env.localsecrets) {
-    config = require('./secrets.json');
+    config = require('../secrets.json');
     debug('Secret key retrivied from localhost');
 } else
     debug('Secret key retrivied by magic');
